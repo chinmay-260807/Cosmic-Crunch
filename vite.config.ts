@@ -10,7 +10,11 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
-    sourcemap: true,
+    sourcemap: false,
+  },
+  // Define process.env for the browser as the Gemini SDK expects it
+  define: {
+    'process.env.API_KEY': JSON.stringify(process.env.API_KEY),
   },
   server: {
     port: 3000,
